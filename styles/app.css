@@ -1,7 +1,7 @@
 /* Misc basic styling */
 
 .content {
-    margin-top: 60px;
+    margin-top: 70px;
 }
 
 .search-input {
@@ -10,7 +10,28 @@
     min-width: 40%;
 }
 
-@media screen and (max-width: 770px) {
+.navbar-brand {
+    font-size: 1.4em !important;
+}
+
+.navbar-brand img {
+    height: 100%;
+    margin-right:5px;
+}
+
+
+.scroller {
+    position: fixed;
+    top: 60px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 10px;
+    overflow: auto;
+}
+
+
+@media screen and (max-width: 768px) {
     .search-input {
         float: none;
         width: 100%;
@@ -19,7 +40,11 @@
     }
 
     .content {
-        margin-top: 100px;
+        margin-top: 120px;
+    }
+
+    .scroller {
+        top: 112px;
     }
 }
 
@@ -57,3 +82,4 @@ th {
 .sk-wave .sk-rect {
     background-color: #50F0FE;
 }
+

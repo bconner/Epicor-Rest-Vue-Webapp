@@ -42,7 +42,7 @@ var app = new Vue({
 
   // data contains all the info we want to display to the user or take as input from the user
   data: {
-    appTitle: 'Awesome REST Application',
+    appTitle: 'Awesome REST App',
 
     // the search text the user types in
     query: '',
