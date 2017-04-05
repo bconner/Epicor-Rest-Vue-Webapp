@@ -3,6 +3,10 @@
 This application is an educational sample with which you can search for any type
 of business object in ERP using REST Services. 
 
+![Insights-Vue-Sample](docs/insights-vue-sample.gif)
+
+## How this application is written
+
 We've used Vue.js, a light weight web framework, to simplify writing data to the
 web page after it is loaded from REST. This may seem complicated, but it's 
 simpler than using JQuery or plain javascript to update the html, we promise! 
@@ -19,3 +23,4 @@ directly from the file system. All you have to do is open up index.html in a
 modern web browser such as Edge, Chrome, or Firefox. Alternatively you can host
 the application in the web server of your choice, but it's not necessary to
 play with the application in most cases.
+
