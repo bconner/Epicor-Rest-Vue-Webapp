@@ -73,12 +73,28 @@ var app = new Vue({
 
         ///// Place the Code From POSTMAN Here
 
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "https://hv-rest-demo/2012rtest/api/v1/Erp.BO.CustomerSvc/Customers/?$filter=startswith(Name, 'A')",
+          "method": "GET",
+          "headers": {
+            "accept": "application/json",
+            "authorization": "Basic bWFuYWdlcjpFcGljb3IxMjM=",
+            "cache-control": "no-cache",
+            "postman-token": "4089201c-57a8-f663-7e65-fe3dc9c28688"
+          }
+        };
 
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
 
-     
-
-        //set searchResults = the rest results
-        //searching = false;
+        //1. use bind(this) to give the rest callback function access to the data objects        
+        //2. set searchResults = the rest results 
+        //3. set searching to false so the ui knows we're no longer searching.
+        //4. inject this.query into the search url to wire up the search input
+        
       }
       else {
         // if the user clears the search
