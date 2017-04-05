@@ -88,6 +88,8 @@ var app = new Vue({
 
         $.ajax(settings).done(function (response) {
           console.log(response);
+          this.searchResults = response.value;
+          this.searching = false;
         }.bind(this));
 
         //1. use bind(this) to give the rest callback function access to the data objects        
