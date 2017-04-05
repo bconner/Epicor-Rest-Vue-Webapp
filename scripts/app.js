@@ -88,13 +88,12 @@ var app = new Vue({
 
         $.ajax(settings).done(function (response) {
           console.log(response);
-        });
+        }.bind(this));
 
         //1. use bind(this) to give the rest callback function access to the data objects        
         //2. set searchResults = the rest results 
         //3. set searching to false so the ui knows we're no longer searching.
         //4. inject this.query into the search url to wire up the search input
-        
       }
       else {
         // if the user clears the search
