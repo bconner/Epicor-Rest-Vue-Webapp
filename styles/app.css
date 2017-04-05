@@ -1,0 +1,59 @@
+/* Misc basic styling */
+
+.content {
+    margin-top: 60px;
+}
+
+.search-input {
+    float: right;
+    margin-top: 8px;
+    min-width: 40%;
+}
+
+@media screen and (max-width: 770px) {
+    .search-input {
+        float: none;
+        width: 100%;
+        margin-top: 4px;
+        margin-bottom:4px;
+    }
+
+    .content {
+        margin-top: 100px;
+    }
+}
+
+.navbar-brand {
+    white-space: nowrap;
+}
+
+th {
+    white-space: nowrap;
+    min-width: 100px;
+}
+
+
+/* Wow. Such Animation. */
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+}
+
+.fade-enter, .fade-leave-to
+{
+    opacity: 0
+}
+
+
+/* Spinners */
+
+.sk-wave {
+    position: absolute;
+    z-index: 999;
+    top: 100px;
+    left: 50%;
+}
+
+.sk-wave .sk-rect {
+    background-color: #50F0FE;
+}

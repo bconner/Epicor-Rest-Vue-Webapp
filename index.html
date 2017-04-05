@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>insights rest</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="node_modules/spinkit/css/spinners/3-wave.css" />
+  <link rel="stylesheet" href="styles/app.css">
+</head>
+
+<body>
+  <div id="app">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand " href="#">{{appTitle}}</a>
+        </div>
+
+        <div class="search-input">
+          <!-- 
+            v-model="query" tells Vue to send anything the user types into this box to the data.query object
+            which you can find in app.js
+
+            v-on:keyup="search" tells Vue to call the search method every time the user finishes typing a key
+            so the search is run each time the user types something. You can find the search method in app.js
+          -->
+          <input type="text" class="form-control" placeholder="Search..." v-model="query" v-on:keyup="search" />
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid content">
+      <!-- 
+        The Searching animation. This shows only when we are waiting for a search to complete 
+        
+        v-if="searching" tells Vue to show this div only while data.searching = true. We will set this value
+        in the search method while we are waiting for our search results from REST.
+      -->
+      <transition name="fade">
+        <div class="sk-wave" v-if="searching">
+          <div class="sk-rect sk-rect1"></div>
+          <div class="sk-rect sk-rect2"></div>
+          <div class="sk-rect sk-rect3"></div>
+          <div class="sk-rect sk-rect4"></div>
+          <div class="sk-rect sk-rect5"></div>
+        </div>
+      </transition>
+      <!-- 
+        The Search Results Table
+        
+        v-if="!searching && searchResults.length > 0" tells Vue to hide the search results table if data.searchResults
+        does not have any data in it or if a new search is currently being run.
+      -->
+      <transition name="fade">
+        <div class="row" v-if="!searching && searchResults.length > 0">
+          <div class="col-lg-12">
+            <div class="scroller">
+              <table class="table table-striped">
+                <thead>
+                  <!-- 
+                    The v-for="..." tells Vue to add a new <th> element for each column name in the first row
+                    Object.keys() returns a list of the javascript object's property names. This way our table
+                    is dynamic. Anything we get back from rest will get a column in the table automatically.
+                  -->
+                  <th v-for="propertyName in Object.keys(searchResults[0])">{{ propertyName }}</th>
+                </thead>
+                <tbody>
+                  <!-- 
+                    The v-for="item in searchResults" tells Vue to add a new <tr> element for each item in 
+                    data.searchResults. This is the actual data for the table. Again, you can find 
+                    data.searchResults in app.js.
+                  -->
+                  <tr v-for="item in searchResults">
+                    <td v-for="property in item">{{ property }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </transition>
+
+    </div>
+  </div>
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/vue/dist/vue.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script src="scripts/app.js"></script>
+</body>
+
+</html>
