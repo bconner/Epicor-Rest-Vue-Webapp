@@ -76,7 +76,7 @@ var app = new Vue({
         var settings = {
           "async": true,
           "crossDomain": true,
-          "url": "https://hv-rest-demo/2012rtest/api/v1/Erp.BO.CustomerSvc/Customers/?$filter=startswith(Name, 'A')",
+          "url": "https://hv-rest-demo/2012rtest/api/v1/Erp.BO.CustomerSvc/Customers/?$filter=startswith(Name, '" + this.query + "')",
           "method": "GET",
           "headers": {
             "accept": "application/json",
@@ -91,11 +91,6 @@ var app = new Vue({
           this.searchResults = response.value;
           this.searching = false;
         }.bind(this));
-
-        //1. use bind(this) to give the rest callback function access to the data objects        
-        //2. set searchResults = the rest results 
-        //3. set searching to false so the ui knows we're no longer searching.
-        //4. inject this.query into the search url to wire up the search input
       }
       else {
         // if the user clears the search
