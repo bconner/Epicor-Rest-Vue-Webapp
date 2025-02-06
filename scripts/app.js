@@ -80,9 +80,8 @@ var app = new Vue({
           "method": "GET",
           "headers": {
             "accept": "application/json",
-            "authorization": "Basic bWFuYWdlcjpFcGljb3IxMjM=",
+            "authorization": "Basic basic-auth-creds-here",
             "cache-control": "no-cache",
-            "postman-token": "4089201c-57a8-f663-7e65-fe3dc9c28688"
           }
         };
 
